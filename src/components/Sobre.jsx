@@ -9,8 +9,9 @@ export default function Sobre() {
     <section id="sobre" className="py-20 md:py-28 bg-neutral/[0.03]">
       <div className="max-w-6xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-12 items-center">
         <div className="reveal order-2 md:order-1">
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral flex items-center justify-center text-center p-8">
-            <span className="text-bg/70 text-sm leading-relaxed">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral flex items-center justify-center text-center p-8 shadow-lg">
+            <div className="absolute inset-0 leopard-texture opacity-10" aria-hidden="true"></div>
+            <span className="relative text-bg/70 text-sm leading-relaxed">
               [IMAGEM: foto do interior do estúdio — cadeira de atendimento, decoração em tons de bronze e preto]
             </span>
           </div>
@@ -44,7 +45,7 @@ export default function Sobre() {
             {badges.map((badge) => (
               <div
                 key={badge}
-                className="rounded-lg border border-neutral/10 px-4 py-3 text-sm font-medium text-neutral/80 text-center"
+                className="rounded-lg border border-neutral/10 px-4 py-3 text-sm font-medium text-neutral/80 text-center hover:border-accent/40 hover:text-accent hover:-translate-y-0.5 transition-all duration-300"
               >
                 {badge}
               </div>

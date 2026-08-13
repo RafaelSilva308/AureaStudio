@@ -21,7 +21,10 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="hover:text-accent transition-colors">
+                <a
+                  href={link.href}
+                  className="inline-block hover:text-accent hover:translate-x-1 transition-all duration-200"
+                >
                   {link.label}
                 </a>
               </li>

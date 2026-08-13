@@ -38,15 +38,18 @@ export default function FAQ() {
           {faqs.map((item) => (
             <details
               key={item.q}
-              className="reveal group rounded-xl border border-neutral/10 bg-white/40 px-6 py-4"
+              className="reveal group rounded-xl border border-neutral/10 bg-white/40 px-6 py-4 open:border-accent/30 open:shadow-md transition-colors duration-300"
             >
-              <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-medium text-neutral">
+              <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-medium text-neutral hover:text-accent transition-colors">
                 {item.q}
-                <span className="text-accent text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">
+                <span
+                  className="shrink-0 text-accent text-xl leading-none transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden="true"
+                >
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm text-neutral/70 leading-relaxed">{item.a}</p>
+              <p className="faq-answer mt-3 text-sm text-neutral/70 leading-relaxed">{item.a}</p>
             </details>
           ))}
         </div>

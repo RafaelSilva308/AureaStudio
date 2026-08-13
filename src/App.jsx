@@ -6,6 +6,7 @@ import Sobre from "./components/Sobre";
 import FAQ from "./components/FAQ";
 import Contato from "./components/Contato";
 import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
         <Contato />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }

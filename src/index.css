@@ -27,6 +27,19 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .font-display {
@@ -62,4 +75,60 @@ body {
 
 .reveal.is-visible {
   animation: fade-in-up 0.7s ease-out forwards;
+}
+
+.reveal.is-visible:nth-child(2) { animation-delay: 0.1s; }
+.reveal.is-visible:nth-child(3) { animation-delay: 0.2s; }
+.reveal.is-visible:nth-child(4) { animation-delay: 0.3s; }
+.reveal.is-visible:nth-child(5) { animation-delay: 0.4s; }
+.reveal.is-visible:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes soft-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-color: var(--color-accent);
+  animation: soft-pulse 2.2s ease-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.float-y {
+  animation: float-y 3.5s ease-in-out infinite;
+}
+
+.faq-answer {
+  animation: fade-in-up 0.35s ease-out;
+}
+
+/* mobile nav panel transition */
+.mobile-nav {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
+}
+
+.mobile-nav.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.mobile-nav > div {
+  overflow: hidden;
 }

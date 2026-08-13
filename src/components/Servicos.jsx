@@ -50,9 +50,12 @@ export default function Servicos() {
           {services.map((service) => (
             <div
               key={service.name}
-              className="reveal rounded-xl border border-neutral/10 bg-white/40 p-7 hover:shadow-lg transition-shadow"
+              className="reveal group rounded-xl border border-neutral/10 bg-white/40 p-7 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent/30 transition-all duration-300"
             >
-              <div className="text-3xl" aria-hidden="true">
+              <div
+                className="text-3xl inline-block transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+                aria-hidden="true"
+              >
                 {service.icon}
               </div>
               <h3 className="font-display text-xl mt-4 text-neutral">{service.name}</h3>
