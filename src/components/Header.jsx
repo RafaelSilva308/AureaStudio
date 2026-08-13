@@ -14,12 +14,19 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 bg-bg/90 backdrop-blur-sm border-b transition-shadow duration-300 ${
-        scrolled ? "border-neutral/10 shadow-md" : "border-transparent"
+      className={`fixed top-0 inset-x-0 z-50 backdrop-blur-sm border-b transition-colors duration-300 ${
+        scrolled
+          ? "bg-bg/90 border-neutral/10 shadow-md"
+          : "bg-transparent border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        <a href="#" className="font-display text-xl tracking-wide text-neutral shrink-0">
+        <a
+          href="#"
+          className={`font-display text-xl tracking-wide shrink-0 transition-colors duration-300 ${
+            scrolled ? "text-neutral" : "text-bg"
+          }`}
+        >
           Áurea <span className="text-accent">Studio</span>
         </a>
 
@@ -28,7 +35,9 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="relative text-sm font-medium text-neutral/80 hover:text-accent transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              className={`relative text-sm font-medium hover:text-accent transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full ${
+                scrolled ? "text-neutral/80" : "text-bg/80"
+              }`}
             >
               {link.label}
             </a>
@@ -48,7 +57,9 @@ export default function Header() {
           type="button"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
-          className="md:hidden p-2 text-neutral"
+          className={`md:hidden p-2 transition-colors duration-300 ${
+            scrolled || open ? "text-neutral" : "text-bg"
+          }`}
           onClick={() => setOpen((v) => !v)}
         >
           <svg
